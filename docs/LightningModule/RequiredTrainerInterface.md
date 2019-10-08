@@ -62,7 +62,7 @@ class CoolModel(pl.LightningModule):
     def validation_end(self, outputs):
         # OPTIONAL
         avg_loss = torch.stack([x['val_loss'] for x in outputs]).mean()
-        return {'avg_val_loss': avg_loss}
+        return {'log': {'avg_val_loss': avg_loss}}
 
     def test_step(self, batch, batch_nb):
         # OPTIONAL
